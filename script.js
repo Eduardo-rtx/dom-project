@@ -1,19 +1,29 @@
-// Selección de elementos por ID
 const parrafo = document.getElementById('parrafo');
-const botonCambio = document.getElementById('boton-cambio');
+const botonCambioColor = document.getElementById('boton-cambio');
+const botonCambioTexto = document.getElementById('boton-cambio-texto');
 const lista = document.getElementById('lista');
 
-// Acción 1: Cambiar el contenido de un párrafo
-botonCambio.addEventListener('click', () => {
-    parrafo.textContent = 'El contenido del párrafo ha cambiado gracias a JavaScript.';
+// hacer que el texto sea aleatorio al hacer clic en el botón
+const textos = [
+    'El contenido del párrafo ha cambiado gracias a JavaScript.',
+    'Este es otro texto aleatorio.',
+    '¡JavaScript es genial para cambiar textos!',
+    'Texto aleatorio número cuatro.',
+    'Último texto aleatorio.'
+];
+// Cambiamos el contenido de un párrafo
+// hacer que el texto sea aleatorio al hacer clic en el botón
+botonCambioTexto.addEventListener('click', () => {
+    const indiceAleatorio = Math.floor(Math.random() * textos.length);
+    parrafo.textContent = textos[indiceAleatorio];
 });
 
-// Acción 2: Agregar un nuevo elemento a la lista
-const nuevoElemento = document.createElement('li');
-nuevoElemento.textContent = 'Nuevo elemento';
-lista.appendChild(nuevoElemento);
-
-// Acción 3: Cambiar el color de fondo de la página al hacer clic en el botón
-botonCambio.addEventListener('click', () => {
-    document.body.style.backgroundColor = '#e0f7fa'; // Cambia el color de fondo a un tono azul claro
+//Cambiamos el color de fondo de la página al hacer clic en el botón
+botonCambioColor.addEventListener('click', () => {
+    let digitos = '0123456789ABCDEF'; // Dígitos hexadecimales
+    let color = '#'; // Inicializa el color con el símbolo #
+    for (let i = 0; i < 6; i++) {
+        color += digitos[Math.floor(Math.random() * 16)]; // Agrega un dígito aleatorio
+    }
+    return document.body.style.backgroundColor = color; // Cambia el color de fondo
 });
