@@ -27,3 +27,18 @@ botonCambioColor.addEventListener('click', () => {
     }
     return document.body.style.backgroundColor = color; // Cambia el color de fondo
 });
+
+// Función para eliminar el párrafo
+function eliminarParrafo() {
+    const parrafoEliminado = document.getElementById('parrafo-eliminado');
+    
+    // Verificar si el párrafo existe antes de eliminarlo
+    if (parrafoEliminado) {
+        parrafoEliminado.remove();
+    } else {
+        console.log("El párrafo ya no existe o no se encontró.");
+    }
+}
+
+// Asignar la función al botón
+document.getElementById('boton-eliminar').addEventListener('click', eliminarParrafo);
